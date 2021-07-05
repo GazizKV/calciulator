@@ -3,8 +3,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class calculatorJava {
+
+    private double total1 = 0.0;
+    private double total2 = 0.0;
+
+
     private JPanel javaCalculator;
-    private JTextField txtDisplay;
+    private JTextField textDisplay;
     private JButton btnMultiply;
     private JButton btnTwo;
     private JButton btnThree;
@@ -27,120 +32,128 @@ public class calculatorJava {
         btnOne.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnOneText = txtDisplay.getText() + btnOne.getText();
-                txtDisplay.setText(btnOneText);
+                String btnOneText = textDisplay.getText() + btnOne.getText();
+                textDisplay.setText(btnOneText);
             }
         });
         btnTwo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnTwoText = txtDisplay.getText() + btnTwo.getText();
-                txtDisplay.setText(btnTwoText);
+                String btnTwoText = textDisplay.getText() + btnTwo.getText();
+                textDisplay.setText(btnTwoText);
             }
         });
         btnThree.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnThreeText = txtDisplay.getText() + btnThree.getText();
-                txtDisplay.setText(btnThreeText);
+                String btnThreeText = textDisplay.getText() + btnThree.getText();
+                textDisplay.setText(btnThreeText);
             }
         });
         btnFour.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnFourText = txtDisplay.getText() + btnFour.getText();
-                txtDisplay.setText(btnFourText);
+                String btnFourText = textDisplay.getText() + btnFour.getText();
+                textDisplay.setText(btnFourText);
             }
         });
         btnFive.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnFiveText = txtDisplay.getText() + btnFive.getText();
-                txtDisplay.setText(btnFiveText);
+                String btnFiveText = textDisplay.getText() + btnFive.getText();
+                textDisplay.setText(btnFiveText);
             }
         });
         btnSix.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnSixText = txtDisplay.getText() + btnSix.getText();
-                txtDisplay.setText(btnSixText);
+                String btnSixText = textDisplay.getText() + btnSix.getText();
+                textDisplay.setText(btnSixText);
             }
         });
         btnSeven.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnSevenText = txtDisplay.getText() + btnSeven.getText();
-                txtDisplay.setText(btnSevenText);
+                String btnSevenText = textDisplay.getText() + btnSeven.getText();
+                textDisplay.setText(btnSevenText);
             }
         });
         btnEight.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnEightText = txtDisplay.getText() + btnEight.getText();
-                txtDisplay.setText(btnEightText);
+                String btnEightText = textDisplay.getText() + btnEight.getText();
+                textDisplay.setText(btnEightText);
             }
         });
         btnNine.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnNineText = txtDisplay.getText() + btnNine.getText();
-                txtDisplay.setText(btnNineText);
+                String btnNineText = textDisplay.getText() + btnNine.getText();
+                textDisplay.setText(btnNineText);
             }
         });
         btnZero.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnZeroText = txtDisplay.getText() + btnZero.getText();
-                txtDisplay.setText(btnZeroText);
+                String btnZeroText = textDisplay.getText() + btnZero.getText();
+                textDisplay.setText(btnZeroText);
             }
         });
         btnPoint.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnPointText = txtDisplay.getText() + btnPoint.getText();
-                txtDisplay.setText(btnPointText);
+                if(textDisplay.getText().equals("")) textDisplay.setText("0.");
+                else if(textDisplay.getText().contains(".")) {
+                    btnPoint.setEnabled(false);
+                } else {
+                    String btnPointText = textDisplay.getText() + btnPoint.getText();
+                    textDisplay.setText(btnPointText);
+                }
+                btnPoint.setEnabled(true);
             }
         });
         btnClear.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnClearText = txtDisplay.getText() + btnClear.getText();
-                txtDisplay.setText(btnClearText);
+                total2 = 0;
+                textDisplay.setText("");
             }
         });
         btnPlus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnPlusText = txtDisplay.getText() + btnPlus.getText();
-                txtDisplay.setText(btnPlusText);
+                total1 = total1 + Double.parseDouble(textDisplay.getText());
+                textDisplay.setText("");
+
             }
         });
         btnMinus.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnMinusText = txtDisplay.getText() + btnMinus.getText();
-                txtDisplay.setText(btnMinusText);
+                String btnMinusText = textDisplay.getText() + btnMinus.getText();
+                textDisplay.setText(btnMinusText);
             }
         });
         btnDivide.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnDivideText = txtDisplay.getText() + btnDivide.getText();
-                txtDisplay.setText(btnDivideText);
+                String btnDivideText = textDisplay.getText() + btnDivide.getText();
+                textDisplay.setText(btnDivideText);
             }
         });
         btnMultiply.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnMultiplyText = txtDisplay.getText() + btnMultiply.getText();
-                txtDisplay.setText(btnMultiplyText);
+                String btnMultiplyText = textDisplay.getText() + btnMultiply.getText();
+                textDisplay.setText(btnMultiplyText);
             }
         });
         btnEqual.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String btnEqualText = txtDisplay.getText() + btnEqual.getText();
-                txtDisplay.setText(btnEqualText);
+                total2 = total1 + Double.parseDouble(textDisplay.getText());
+                textDisplay.setText(Double.toString(total2));
+                total1 = 0;
             }
         });
     }
